@@ -16,10 +16,11 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 #### 2.1 strings.xml 설정 (/Assets/Plugins/Android/res/values/strings.xml)
 
-a) dotAuthorizationKey 설정
-Wisetracker로 부터 제공받은 App Analytics Key 정보 추가
+#### a) dotAuthorizationKey 설정
+발급받은 App Analytics Key 정보 추가
 
 ```xml
+<!-- 예시는 샘플 코드이며, 관리자 페이지에서 직접 발급 받은 값을 적용해 주세요  -->
 <string-array name="dotAuthorizationKey">
     <item name="usdMode">1</item> // 1. DOT.DOX 2. DOT
     <item name="domain">http://collector.naver.wisetracker.co.kr</item> // DOT END POINT
@@ -33,11 +34,13 @@ Wisetracker로 부터 제공받은 App Analytics Key 정보 추가
 </string-array>
 ```
 
-b) customKeyList 설정 **사용 희망하는 경우에만 설정**
-**Custom-Key 값 사용을 원하는 경우에만 설정**
+#### b) customKeyList 설정 **Custom-Key 값 사용을 원하는 경우에만 설정**
+**'#'** 구분자 기준으로 **왼쪽**은 기본 사용되고 있는 키 값 **오른쪽**은 변경하고자 하는 키 값을 적용해주세요.
 
 ```xml
+<!-- 예시는 디폴트 advtId 키 값을 advt_id 값으로 변경하는 설정입니다. -->
 <string-array name="customKeyList">
+  <item name="custom_key_value1">advtId#advt_id</item>
 </string-array>
 ```
 
