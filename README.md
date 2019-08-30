@@ -51,7 +51,7 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 ```xml
 <!-- true 변경시 Wisetracker 통한 인스톨 레퍼러 미수신 -->
 <meta-data 
-  	android:name="disableDotReceiver" 
+    android:name="disableDotReceiver"
     android:value="false" />
 ```
 
