@@ -14,7 +14,8 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 ### 2. 유니티 안드로이드 설정
 
-#### 2.1 strings.xml 설정 (/Assets/Plugins/Android/res/values/strings.xml)
+#### 2.1 strings.xml 설정
+-> /Assets/Plugins/Android/res/values/strings.xml
 
 #### a) dotAuthorizationKey 설정
 발급받은 App Analytics Key 정보 추가
@@ -44,7 +45,8 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 </string-array>
 ```
 
-#### 2.2 AndroidManifest.xml 설정 (/Assets/Plugins/Android/AndroidManifest.xml)
+#### 2.2 AndroidManifest.xml 설정 
+-> /Assets/Plugins/Android/AndroidManifest.xml
 
 ##### a) Provider 설정
 
