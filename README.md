@@ -5,7 +5,7 @@
 [유니티 플러그인 패키지](https://github.com/WisetrackerTechteam/RW-unity-package) 다운로드 해주세요.
 
 #### 1.2 유니티 패키지 임포트
-Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
+-> Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 다운로드 받은 **RW.unitypackage** 파일을 선택해주세요.
 
@@ -18,7 +18,7 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 -> /Assets/Plugins/Android/res/values/strings.xml
 
 #### a) dotAuthorizationKey 설정
-발급받은 App Analytics Key 정보 추가
+-> 발급받은 App Analytics Key 정보 추가
 
 ```xml
 <!-- 예시는 샘플 코드이며, 관리자 페이지에서 직접 발급 받은 값을 적용해 주세요  -->
@@ -66,7 +66,7 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 ```
 
 ##### c) 딥링크 설정
-딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요.
+-> 딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요.
               
 ```xml
 <!--  예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능 -->
@@ -84,7 +84,7 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 ```
 
 #### 2.2 SDK 기본 분석 설정
-앱이 포어그라운드로 올라 오는 시점에 해당 API를 호출해 주세요.
+-> 앱이 포어그라운드로 올라 오는 시점에 해당 API를 호출해 주세요.
 
 ```c#
 void OnApplicationPause(bool pauseStatus)
