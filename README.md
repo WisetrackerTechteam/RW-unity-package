@@ -34,8 +34,8 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 </string-array>
 ```
 
-#### b) customKeyList 설정 **Custom-Key 값 사용을 원하는 경우에만 설정**
-**'#'** 구분자 기준으로 **왼쪽**은 기본 사용되고 있는 키 값 **오른쪽**은 변경하고자 하는 키 값을 적용해주세요.
+#### b) customKeyList 설정 **(필요시 설정)**
+-> **'#'** 구분자 기준으로 **왼쪽**은 기본 사용되고 있는 키 값 **오른쪽**은 변경하고자 하는 키 값을 적용해주세요.
 
 ```xml
 <!-- 예시는 디폴트 advtId 키 값을 advt_id 값으로 변경하는 설정입니다. -->
@@ -46,7 +46,15 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 #### 2.2 AndroidManifest.xml 설정 (/Assets/Plugins/Android/AndroidManifest.xml)
 
-##### a) 인스톨 레퍼러 활성화 여부
+##### a) Provider 설정
+
+```xml
+<provider
+    android:name="com.sdk.wisetracker.new_dot.tracker.init.BaseProvider"
+    android:authorities="${applicationId}.BaseProvider" />
+```
+
+##### b) 인스톨 레퍼러 활성화 여부 **(필요시 설정)**
 
 ```xml
 <!-- true 변경시 Wisetracker 통한 인스톨 레퍼러 미수신 -->
@@ -55,8 +63,7 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
     android:value="false" />
 ```
 
-##### b) 딥링크 설정
-
+##### c) 딥링크 설정
 딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요.
               
 ```xml
@@ -74,14 +81,15 @@ Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 </activity>
 ```
 
-#### 2.2 SDK 초기화
-유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같이 초기화 코드를 삽입하세요.
+#### 2.2 SDK 기본 분석 설정
+앱이 포어그라운드로 올라 오는 시점에 해당 API를 호출해 주세요.
 
-```java
-public class MainScene : MonoBehavior { 
-    void Awake() { 
-        DOT.initialization(); // initialize 코드 삽입
-        DOT.setPage(new DOT_Model.Page.Builder().build()); // 기본 페이지 분석 코드 삽입
+```c#
+void OnApplicationPause(bool pauseStatus)
+{
+    if (!pauseStatus)
+    {
+        DOT.onStartPage();
     }
 }
 ```
