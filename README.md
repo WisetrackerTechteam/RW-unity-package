@@ -176,7 +176,6 @@ product.Add("ea", "1");
 product.Add("mvt1", "mvt1");
 page.Add("product", product);
 DOT.logScreen(page);
-} 
 ```
 
 (3) Contents Path 분석 : 앱의 각 페이지에 Hierarchical 한 Contents Path값을 적용하면, 각 컨텐츠의 사용 비율을 카테고리별로 그룹화 하여 분석이 가능합니다.
@@ -188,7 +187,6 @@ Dictionary<string, object> page = new Dictionary<string, object>();
 // Contents Path로 전달되는 값에는 ' 와 " 기호는 사용할 수 없습니다.
 page.Add("cp", "^path^path");
 DOT.logScreen(page); 
-} 
 ```
 
 (4) Multi Variables 분석 (사용자 정의 변수) : Multi Variables 분석 항목은 사용자가 그 항목에 전달할 값을 정의하여 사용이 가능합니다. 
@@ -203,7 +201,6 @@ page.Add("mvt3", "page mvt 3");
 page.Add("mvt4", "page mvt 4");
 page.Add("mvt5", "page mvt 5");
 DOT.logScreen(page); 
-} 
 ```
 
 (5) 내부 검색어 분석 : 앱에 검색기능이 있는 경우, 사용자가 입력한 검색어와, 검색한 카테고리, 검색 결과수등을 분석하면, 검색 기능의 활용성을 측정할 수 있습니다. 
@@ -217,7 +214,6 @@ page.Add("skwd", "청바지");
 page.Add("scart", "통합검색");
 page.Add("sresult", "1200");
 DOT.logScreen(page); 
-} 
 ```
 
 #### <a id="3.3"></a> 3.3 Click 분석
