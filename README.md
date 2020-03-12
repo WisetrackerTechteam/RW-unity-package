@@ -153,29 +153,29 @@ DOT.setUser(
 
 ```c#
 DOT.onStartPage();
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("pi", "Your Page Identity Value");
-DOT.logScreen(dictionary); 
+Dictionary<string, object> page = new Dictionary<string, object>();
+page.Add("pi", "Your Page Identity Value");
+DOT.logScreen(page); 
 ```
 
 (2) 상품 페이지 분석 : e-commerce 앱의 경우 상품 상세 페이지에 분석코드를 적용하여, 상품별 조회수를 분석합니다.
 
 ```c#
 DOT.onStartPage();
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-Dictionary<string, object> productDictionary = new Dictionary<string, object>();
-productDictionary.Add("orderNo", "ORD001");
-productDictionary.Add("currency", "KRW");
-productDictionary.Add("pg1", "sports");
-productDictionary.Add("pg2", "fashion");
-productDictionary.Add("pg3", "cloth");
-productDictionary.Add("pnc", "PNC001");
-productDictionary.Add("ordPno", "BESTABC");
-productDictionary.Add("amt", "100,000");
-productDictionary.Add("ea", "1");
-productDictionary.Add("mvt1", "mvt1");
-dictionary.Add("product", productDictionary);
-DOT.logScreen(dictionary);
+Dictionary<string, object> page = new Dictionary<string, object>();
+Dictionary<string, object> product = new Dictionary<string, object>();
+product.Add("orderNo", "ORD001");
+product.Add("currency", "KRW");
+product.Add("pg1", "sports");
+product.Add("pg2", "fashion");
+product.Add("pg3", "cloth");
+product.Add("pnc", "PNC001");
+product.Add("ordPno", "BESTABC");
+product.Add("amt", "100,000");
+product.Add("ea", "1");
+product.Add("mvt1", "mvt1");
+page.Add("product", product);
+DOT.logScreen(page);
 } 
 ```
 
@@ -183,11 +183,11 @@ DOT.logScreen(dictionary);
 
 ```c#
 DOT.onStartPage();
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
+Dictionary<string, object> page = new Dictionary<string, object>();
 // Contents Path는 '^' 문자로 시작, '^' 문자를 구분자로 합니다.
 // Contents Path로 전달되는 값에는 ' 와 " 기호는 사용할 수 없습니다.
-dictionary.Add("cp", "^path^path");
-DOT.logScreen(dictionary); 
+page.Add("cp", "^path^path");
+DOT.logScreen(page); 
 } 
 ```
 
@@ -196,13 +196,13 @@ DOT.logScreen(dictionary);
 
 ```c#
 DOT.onStartPage();
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("mvt1", "page mvt 1");
-dictionary.Add("mvt2", "page mvt 2");
-dictionary.Add("mvt3", "page mvt 3");
-dictionary.Add("mvt4", "page mvt 4");
-dictionary.Add("mvt5", "page mvt 5");
-DOT.logScreen(dictionary); 
+Dictionary<string, object> page = new Dictionary<string, object>();
+page.Add("mvt1", "page mvt 1");
+page.Add("mvt2", "page mvt 2");
+page.Add("mvt3", "page mvt 3");
+page.Add("mvt4", "page mvt 4");
+page.Add("mvt5", "page mvt 5");
+DOT.logScreen(page); 
 } 
 ```
 
@@ -212,11 +212,11 @@ DOT.logScreen(dictionary);
 ```c#
 DOT.onStartPage();
 // 사용자가 '통합 검색' 카테고리에서 '청바지' 검색어로 '1200개의 검색 결과를 보았을떄 적용 예시 
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("skwd", "청바지");
-dictionary.Add("scart", "통합검색");
-dictionary.Add("sresult", "1200");
-DOT.logScreen(dictionary); 
+Dictionary<string, object> page = new Dictionary<string, object>();
+page.Add("skwd", "청바지");
+page.Add("scart", "통합검색");
+page.Add("sresult", "1200");
+DOT.logScreen(page); 
 } 
 ```
 
@@ -229,31 +229,31 @@ DOT.logScreen(dictionary);
 검색 결과 페이지에서 특정 항목이 클릭되면, 해당 화면으로 이동하기 이전에 아래와 같이 분석 코드를 적용하세요.
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("ckTp", "SCH");
-DOT.logClick(dictionary);
+Dictionary<string, object> click = new Dictionary<string, object>();
+click.Add("ckTp", "SCH");
+DOT.logClick(click);
 ```
 
 (2) 장바구니 담긴 상품 분석 : e-commerce 관련된 비즈니스의 경우 장바구니에 담긴 상품을 분석할 수 있습니다.
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("ckTp", "SCRT");
-Dictionary<string, object> productDictionary = new Dictionary<string, object>();
-productDictionary.Add("pg1", "상품카테고리(대)");
-productDictionary.Add("pnc", "상품코드");
-productDictionary.Add("pnAtr1", "상품속성#1");
-dictionary.Add("product", productDictionary);
-DOT.logClick(dictionary);
+Dictionary<string, object> click = new Dictionary<string, object>();
+click.Add("ckTp", "SCRT");
+Dictionary<string, object> product = new Dictionary<string, object>();
+product.Add("pg1", "상품카테고리(대)");
+product.Add("pnc", "상품코드");
+product.Add("pnAtr1", "상품속성#1");
+click.Add("product", product);
+DOT.logClick(click);
 ```
 
 (3) 클릭 이벤트 분석 : 앱에 존재하는 다양한 클릭 요소 (배너, 버튼 등)에 대해서, 클릭수를 분석합니다. 
 각 요소가 클릭되는 시점에 아래와 클릭된 요소의 목적지 화면으로 이동하기 이전에 아래와 같은 분석 코드를 적용하세요.
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("ckTp", "CKC");
-DOT.logClick(dictionary);
+Dictionary<string, object> click = new Dictionary<string, object>();
+click.Add("ckTp", "CKC");
+DOT.logClick(click);
 ```
 
 **\*클릭된 요소의 ID값으로 단일 문자열로된 값을 전달하기도 하지만, 앞에서 설명한 Contents Path 분석 과 같이, Hierarchical 한 Path값을 전달하여 추후 데이터 조회시 Categorizing 하게 보기도 가능합니다. Hierarchical 한 Path 값을 사용하고자 할때 값에 대한 제약사항은 Contents Path 분석 과 동일합니다.**
@@ -262,13 +262,13 @@ DOT.logClick(dictionary);
 
 ```c#
 // 클릭 이벤트 분석시 Multi Variables 분석값을 같이 전송하는 예시
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("mvt1", "click mvt 1");
-dictionary.Add("mvt2", "click mvt 2");
-dictionary.Add("mvt3", "click mvt 3");
-dictionary.Add("mvt4", "click mvt 4");
-dictionary.Add("mvt5", "click mvt 5");
-DOT.logClick(dictionary); 
+Dictionary<string, object> click = new Dictionary<string, object>();
+click.Add("mvt1", "click mvt 1");
+click.Add("mvt2", "click mvt 2");
+click.Add("mvt3", "click mvt 3");
+click.Add("mvt4", "click mvt 4");
+click.Add("mvt5", "click mvt 5");
+DOT.logClick(click); 
 ```
 
 #### <a id="3.4"></a> 3.4 Conversion 분석
@@ -282,33 +282,33 @@ SDK는 총 80개의 Conversion을 사용자가 정의하고, 분석 코드를 �
 
 ```c#
 // Micro Conversion #1 번의 사용 예시
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("g1", "goal 1");
-DOT.logEvent(dictionary);
+Dictionary<string, object> conversion = new Dictionary<string, object>();
+conversion.Add("g1", "goal 1");
+DOT.logEvent(conversion);
 ```
 
 (1) Conversion 상품 분석 : Conversion은 단순하게 발생 횟수를 측정할 수도 있으나, 상품과 연계하여 상품별로 정의한 Conversion의 발생 횟수 측정도 가능합니다. 이벤트가 발생한 시점에 아래와 같이 Conversion Data + Product Data를 SDK로 전달하세요.
  
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-Dictionary<string, object> productDictionary = new Dictionary<string, object>();
-productDictionary.Add("pg1", "상품카테고리(대)");
-productDictionary.Add("pnc", "상품코드");
-productDictionary.Add("pnAtr1", "상품속성#1");
-dictionary.Add("product", productDictionary);
-DOT.logEvent(dictionary);
+Dictionary<string, object> conversion = new Dictionary<string, object>();
+Dictionary<string, object> product = new Dictionary<string, object>();
+product.Add("pg1", "상품카테고리(대)");
+product.Add("pnc", "상품코드");
+product.Add("pnAtr1", "상품속성#1");
+conversion.Add("product", product);
+DOT.logEvent(conversion);
 ```
 
 (2) Conversion Multi Variables 분석 : Multi Variables 항목과 연계하여 Conversion의 발생 횟수 측정도 가능합니다. 이벤트가 발생한 시점에 아래와 같이 Conversion Data + Multi Variables Data를 SDK로 전달하세요.
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("mvt1", "conversion mvt 1");
-dictionary.Add("mvt2", "conversion mvt 2");
-dictionary.Add("mvt3", "conversion mvt 3");
-dictionary.Add("mvt4", "conversion mvt 4");
-dictionary.Add("mvt5", "conversion mvt 5");
-DOT.logEvent(dictionary);
+Dictionary<string, object> conversion = new Dictionary<string, object>();
+conversion.Add("mvt1", "conversion mvt 1");
+conversion.Add("mvt2", "conversion mvt 2");
+conversion.Add("mvt3", "conversion mvt 3");
+conversion.Add("mvt4", "conversion mvt 4");
+conversion.Add("mvt5", "conversion mvt 5");
+DOT.logEvent(conversion);
 ```
 
 #### <a id="3.5"></a> 3.5 Purchase 분석
@@ -320,26 +320,26 @@ DOT.logEvent(dictionary);
 (1) Purchase 제품 분석
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-Dictionary<string, object> productDictionary = new Dictionary<string, object>();
-productDictionary.Add("pg1", "상품카테고리(대)");
-productDictionary.Add("pnc", "상품코드");
-productDictionary.Add("pnAtr1", "상품속성#1");
-productDictionary.Add("ea", "1");
+Dictionary<string, object> purchase = new Dictionary<string, object>();
+Dictionary<string, object> product = new Dictionary<string, object>();
+product.Add("pg1", "상품카테고리(대)");
+product.Add("pnc", "상품코드");
+product.Add("pnAtr1", "상품속성#1");
+product.Add("ea", "1");
 List<Dictionary<string, object>> productList = new List<Dictionary<string, object>>();
-productList.Add(productDictionary);
-dictionary.Add("products", productList);
-DOT.logPurchase(dictionary);
+productList.Add(product);
+purchase.Add("products", productList);
+DOT.logPurchase(purchase);
 ```
 
 (2) Purchase Multi Variables 분석 : Multi Variables 항목과 연계하여 Purchase 분석도 가능합니다. 이벤트가 발생한 시점에 아래와 같이 Purchase Data + Multi Variables Data 를 SDK로 전달하세요.
 
 ```c#
-Dictionary<string, object> dictionary = new Dictionary<string, object>();
-dictionary.Add("mvt1", "purchase mvt 1");
-dictionary.Add("mvt2", "purchase mvt 2");
-dictionary.Add("mvt3", "purchase mvt 3");
-dictionary.Add("mvt4", "purchase mvt 4");
-dictionary.Add("mvt5", "purchase mvt 5");
-DOT.logPurchase(dictionary);
+Dictionary<string, object> purchase = new Dictionary<string, object>();
+purchase.Add("mvt1", "purchase mvt 1");
+purchase.Add("mvt2", "purchase mvt 2");
+purchase.Add("mvt3", "purchase mvt 3");
+purchase.Add("mvt4", "purchase mvt 4");
+purchase.Add("mvt5", "purchase mvt 5");
+DOT.logPurchase(purchase);
 ```
