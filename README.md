@@ -2,7 +2,7 @@
 ### 1. 유니티 플러그인 설치 (AOS/IOS 공통 설정)
 
 #### 1.1 유니티 패키지 다운로드
-[유니티 플러그인 패키지](https://github.com/WisetrackerTechteam/RW-unity-package) 다운로드 해주세요
+유니티 플러그인 패키지(RW.unitypackage)를 다운로드 해주세요
 
 #### 1.2 유니티 패키지 임포트
 -> Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택
